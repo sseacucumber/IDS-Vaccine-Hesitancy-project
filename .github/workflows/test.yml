@@ -1,36 +1,82 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+library(oibiostat)
+? prevend
+#I think we should change the name 
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+library(oibiostat)
+data("prevend")
+attach(prevend)
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+table(prevend$Gender)
+prop.table(table(prevend$Gender))
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+summary(prevend$BMI)
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+mean(Age)
+sd(Age)
+summary(Age)
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+table(prevend$Ethnicity)
+table(prevend$Education)
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+
+mean(RFFT)
+sd(RFFT)
+
+median(VAT)
+IQR(VAT)
+
+table(prevend$Statin)
+table(prevend$DM)
+table(prevend$Smoking)
+table(prevend$Hypertension)
+
+mean(FRS)
+sd(FRS)
+
+prop.table(table(prevend$Age))
+#^percentage per age 
+hist(prevend$Age)
+table(prevend$Age)
+#^count per age 
+count(prevend$Age)
+
+prop.table(table(prevend$Smoking))
+
+table(prevend$HDL)
+
+mean(HDL)
+sd(HDL)
+mean(prevend$HDL[prevend$HDL != "-1"])
+sd(prevend$HDL[prevend$HDL != "-1"])
+
+prop.table(table(prevend$Ethnicity))
+
+3958+30+3+34 
+2140+1955
+
+prop.table(table(prevend$Education))
+
+3788+307
+prop.table(table(prevend$CVD))
+
+3840+255 
+
+22+3101+972
+
+
+
+
+
+prop.table(table(prevend$DM))
+
+2706+1389 
+prop.table(table(prevend$Hypertension))
+
+3499+596
+prop.table(table(prevend$Albuminuria.1))
+
+3191+904
+prop.table(table(prevend$Statin))
+
